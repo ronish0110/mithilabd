@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#fff0f5">
+  <title>For Mithila ♡</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Pacifico&display=swap');
+
+    :root {
+      --pink: #ff83ad;
+      --light: #fff0f5;
+      --deep: #ed548c;
+      --purple: #c8a6ff;
+      --text: #75445a;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: #fff5f8;
+      color: var(--text);
+      font-family: 'Nunito', sans-serif;
+      overflow-x: hidden;
+    }
+    button { font: inherit; cursor: pointer; }
+    button:focus-visible, label:focus-within {
+      outline: 3px solid #bd6bff;
+      outline-offset: 3px;
+    }
+
+    .hero {
+      min-height: 100svh;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 48px 18px;
+      background: linear-gradient(145deg, #ffe2ed, #fff5fa, #f1e5ff);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-content { position: relative; z-index: 2; max-width: 600px; }
+    .eyebrow { letter-spacing: 3px; font-weight: 800; color: #ed6596; }
+    h1 {
+      font-family: 'Pacifico', cursive;
+      font-weight: 400;
+      font-size: clamp(42px, 10vw, 78px);
+      line-height: 1.2;
+      color: #ed6596;
+      margin: 15px 0;
+    }
+    .subtitle { font-size: 17px; line-height: 1.8; }
+    .hero-heart { font-size: 65px; animation: beat 1s infinite; }
+    .primary {
+      border: 0;
+      background: linear-gradient(120deg, #ff8eb5, #ec6096);
+      color: white;
+      padding: 14px 25px;
+      border-radius: 40px;
+      font-weight: 900;
+      box-shadow: 0 8px 20px #ed679744;
+      margin-top: 20px;
+      transition: transform .2s;
+    }
+    .primary:hover { transform: translateY(-3px); }
+    @keyframes beat { 50% { transform: scale(1.12); } }
+    @keyframes float { 50% { transform: translateY(-13px) rotate(8deg); } }
+    @keyframes rise {
+      to { transform: translateY(-100vh) rotate(50deg); opacity: 0; }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(12px) scale(.98); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    .floaty {
+      position: absolute;
+      animation: float 4s infinite ease-in-out;
+      opacity: .7;
+      pointer-events: none;
+    }
+
+    section { padding: 72px 18px; text-align: center; }
+    .section-title {
+      font-family: 'Pacifico', cursive;
+      font-size: clamp(29px, 7vw, 35px);
+      font-weight: 400;
+      color: #ed6596;
+      margin: 0 0 12px;
+    }
+    .desc {
+      color: #a77a8c;
+      margin: 0 auto 30px;
+      max-width: 500px;
+      line-height: 1.7;
+    }
+    .wrap { max-width: 850px; margin: auto; }
+
+    #memories { background: #fff; }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin: 28px auto 0;
+      max-width: 680px;
+    }
+    .memory-card {
+      min-width: 0;
+      aspect-ratio: 1 / 1;
+      border: 0;
+      border-radius: 22px;
+      padding: 0;
+      overflow: hidden;
+      position: relative;
+      background: linear-gradient(145deg, #ffe5ef, #f6eaff);
+      box-shadow: 0 7px 22px #df91b526;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .memory-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 25px #df91b544;
+    }
+    .memory-card img { width: 100%; height: 100%; display: block; object-fit: cover; }
+    .memory-card .placeholder {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      font-size: clamp(36px, 8vw, 55px);
+    }
+    .memory-card .card-caption {
+      position: absolute;
+      left: 7px;
+      right: 7px;
+      bottom: 8px;
+      padding: 5px 7px;
+      border-radius: 14px;
+      background: #ffffffdf;
+      color: #bd527d;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    #letter { background: linear-gradient(140deg, #fff0f5, #f8edff); }
+    .letter {
+      max-width: 620px;
+      margin: auto;
+      text-align: left;
+      line-height: 2;
+      font-size: 16px;
+      white-space: pre-line;
+      background: white;
+      padding: 30px;
+      border-radius: 25px;
+      box-shadow: 0 8px 30px #df91b51b;
+    }
+    .letter h3 { font-family: 'Pacifico', cursive; font-size: 25px; color: #ed6596; }
+
+    #cake-section { background: linear-gradient(140deg, #ffeaf2, #fff5fa); }
+    .cake { position: relative; width: 220px; height: 190px; margin: 55px auto 25px; }
+    .layer {
+      position: absolute; left: 10px; width: 200px; height: 75px;
+      background: #ff9fbd; border-radius: 15px 15px 22px 22px;
+      box-shadow: inset 0 -10px #ed7da5;
+    }
+    .layer.bottom { bottom: 0; }
+    .layer.top { bottom: 65px; width: 170px; left: 25px; background: #ffc0d4; }
+    .icing {
+      position: absolute; bottom: 112px; left: 25px; width: 170px;
+      height: 22px; background: #fff1f6; border-radius: 15px;
+    }
+    .icing:after {
+      content: ""; position: absolute; left: 20px; top: 10px;
+      width: 15px; height: 25px; background: #fff1f6; border-radius: 0 0 10px 10px;
+      box-shadow: 40px 0 #fff1f6, 85px 0 #fff1f6, 120px 0 #fff1f6;
+    }
+    .candle {
+      position: absolute; bottom: 133px; left: 103px; width: 14px; height: 45px;
+      border-radius: 5px;
+      background: repeating-linear-gradient(45deg, #fff 0 6px, #ff83ad 6px 12px);
+    }
+    .flame {
+      position: absolute; bottom: 175px; left: 100px; width: 20px; height: 27px;
+      border-radius: 50% 50% 40% 40%; background: #ffbd48;
+      box-shadow: 0 0 25px #ffb84b; animation: beat .8s infinite;
+    }
+    .flame.off { display: none; }
+    #cakeMessage { font-weight: 800; color: #e65d92; min-height: 30px; }
+    #final { background: #fff; }
+    footer { padding: 30px 15px; text-align: center; background: #ffebf2; color: #d86b93; }
+    .heart {
+      position: fixed; pointer-events: none; z-index: 20;
+      animation: rise 3s linear forwards;
+    }
+
+    /* Popup windows */
+    .modal {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      background: #44233380;
+      backdrop-filter: blur(5px);
+    }
+    .modal.open { display: flex; }
+    .modal-panel {
+      position: relative;
+      width: min(620px, 100%);
+      max-height: min(88vh, 780px);
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      padding: 30px 22px 24px;
+      border: 1px solid #ffffffb8;
+      border-radius: 25px;
+      background: linear-gradient(145deg, #fffafd, #fff0f6);
+      box-shadow: 0 20px 70px #35152855;
+      text-align: center;
+      animation: fadeIn .25s ease-out;
+    }
+    .modal-close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 34px;
+      height: 34px;
+      border: 0;
+      border-radius: 50%;
+      background: #e84d68;
+      color: white;
+      font-size: 23px;
+      line-height: 1;
+      box-shadow: 0 3px 10px #a72f4c44;
+    }
+    .modal-title {
+      margin: 4px 38px 8px;
+      color: #e65d92;
+      font: 27px 'Pacifico', cursive;
+    }
+    .modal-note { color: #a77a8c; margin: 0 0 20px; }
+    .popup-gallery {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin: 18px 0;
+    }
+    .popup-photo {
+      aspect-ratio: 1 / 1;
+      min-width: 0;
+      overflow: hidden;
+      border-radius: 16px;
+      background: linear-gradient(145deg, #ffe0ec, #eee1ff);
+      box-shadow: 0 4px 14px #d98bad22;
+    }
+    .popup-photo img { display: block; width: 100%; height: 100%; object-fit: cover; }
+    .add-photo {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 11px 19px;
+      border-radius: 25px;
+      background: #ffe2ed;
+      color: #d94e87;
+      font-weight: 900;
+      cursor: pointer;
+    }
+    input[type="file"] { display: none; }
+
+    .love-message {
+      min-height: 150px;
+      display: grid;
+      place-items: center;
+      padding: 22px 5px;
+      color: #e65d92;
+      font: clamp(28px, 7vw, 43px)/1.5 'Pacifico', cursive;
+    }
+    .typing-cursor {
+      display: inline-block;
+      width: 2px;
+      height: 1em;
+      margin-left: 4px;
+      vertical-align: -2px;
+      background: #e65d92;
+      animation: blink .7s steps(1) infinite;
+    }
+    @keyframes blink { 50% { opacity: 0; } }
+
+    .bouquet-wrap { padding: 8px 0 0; }
+    .bouquet-svg { width: min(100%, 390px); height: auto; overflow: visible; }
+    .bouquet-caption { color: #a77a8c; margin: 8px 0 0; }
+
+    @media (max-width: 600px) {
+      section { padding: 58px 15px; }
+      .gallery { gap: 10px; }
+      .memory-card { border-radius: 16px; }
+      .card-caption { font-size: 10px !important; }
+      .letter { padding: 22px 19px; font-size: 15px; }
+      .modal-panel { padding: 29px 15px 20px; border-radius: 21px; }
+      .modal-title { font-size: 24px; }
+    }
+    @media (max-width: 360px) {
+      .hero { padding-inline: 13px; }
+      .eyebrow { letter-spacing: 2px; font-size: 12px; }
+      .subtitle { font-size: 15px; }
+      .gallery { gap: 8px; }
+      .memory-card { border-radius: 13px; }
+      .popup-gallery { gap: 8px; }
+      .modal { padding: 9px; }
+      .modal-panel { padding-inline: 12px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="hero">
+    <span class="floaty" style="top:10%;left:10%">💗</span>
+    <span class="floaty" style="top:20%;right:12%;animation-delay:1s">🌷</span>
+    <span class="floaty" style="bottom:15%;left:15%;animation-delay:2s">✨</span>
+    <span class="floaty" style="bottom:10%;right:10%">🧸</span>
+
+    <div class="hero-content">
+      <div class="hero-heart">💗</div>
+      <h1>Happy Birthday<br>Mithila!</h1>
+      <p class="subtitle">
+        To my favorite, my sweetest happiness,<br>
+        and the prettiest of my world.<br> ♡
+      </p>
+      <button class="primary" onclick="document.getElementById('memories').scrollIntoView({behavior:'smooth'})">
+        Open your surprise 💌
+      </button>
+    </div>
+  </header>
+
+  <section id="memories">
+    <div class="wrap">
+      <h2 class="section-title">An Small Album</h2>
+      <p class="desc">For mine ♡</p>
+
+      <div class="gallery">
+        <button class="memory-card" type="button" onclick="openModal('albumModal')" aria-label="Open our photo album">
+          <img src="images/album-cover.jpg" alt="Our memories" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">
+          <span class="placeholder" style="display:none">📷</span>
+          <span class="card-caption"></span>
+        </button>
+
+        <button class="memory-card" type="button" onclick="openLoveModal()" aria-label="Open the love message">
+          <span class="placeholder">💕</span>
+          <span class="card-caption"></span>
+        </button>
+
+        <button class="memory-card" type="button" onclick="openModal('bouquetModal')" aria-label="Open the flower bouquet">
+          <span class="placeholder">💐</span>
+          <span class="card-caption"></span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section id="letter">
+    <div class="wrap">
+      <h2 class="section-title">A letter for you 💌</h2>
+      <p class="desc">A few words from my heart to yours.</p>
+      <div class="letter">
+        <h3>My dearest Mithila, ♡</h3>
+        Happiest birthday, baby ❤️
+
+        I wish I could be beside you today, looking(tbh staring) into your eyes and making you smile in person.
+
+       Wish I could teleport to you, give you the biggest hug and tell you how much you mean to me.😭
+
+        But even with all these, you are still my favorite person.
+        Thank you for being you.
+
+        Happy Birthday once again, I loveee youu.
+
+        Forever yours,
+        Your person ❤️
+      </div>
+    </div>
+  </section>
+
+  <section id="cake-section">
+    <div class="wrap">
+      <h2 class="section-title">Make a birthday wish! 🎂</h2>
+      <p class="desc">Close your eyes, make a wish, and tap the candle!</p>
+      <div class="cake" onclick="blowCandles()" style="cursor:pointer" role="button" aria-label="Blow out the candle">
+        <div class="layer bottom"></div>
+        <div class="layer top"></div>
+        <div class="icing"></div>
+        <div class="candle"></div>
+        <div class="flame" id="flame"></div>
+      </div>
+      <button class="primary" onclick="blowCandles()">Blow out the candles 🕯️</button>
+      <p id="cakeMessage">Make a beautiful wish, Mithila! 💗</p>
+      <button class="primary" id="relight" onclick="relight()" style="display:none">Light them again ✨</button>
+    </div>
+  </section>
+
+  <section id="final">
+    <div class="wrap">
+      <div style="font-size:60px">💝</div>
+      <h2 class="section-title">One last thing</h2>
+      <p class="desc">
+        If I could choose one person to annoy, laugh with,
+        love and make memories with for the rest of my life...
+        I'd still choose you. Every single time.
+      </p>
+      <button class="primary" onclick="surprise()">Tap for one more surprise 💗</button>
+      <h2 id="surpriseText" style="font-family:Pacifico;color:#ed6596;font-weight:400"></h2>
+    </div>
+  </section>
+
+  <footer>With Love, Ronish ♡</footer>
+
+  <!-- Photo album popup -->
+  <div class="modal" id="albumModal" role="dialog" aria-modal="true" aria-labelledby="albumTitle" onclick="backdropClose(event, 'albumModal')">
+    <div class="modal-panel">
+      <button class="modal-close" type="button" aria-label="Close popup" onclick="closeModal('albumModal')">×</button>
+      <h2 class="modal-title" id="albumTitle">My Favorites📸</h2>
+      <p class="modal-note">Makes me smile always hehe. ♡</p>
+      <div class="popup-gallery" id="popupGallery">
+        <!-- Replace these four image paths with your own image sources. -->
+        <div class="popup-photo"><img src="images/memory-1.png" alt="Memory 1"></div>
+        <div class="popup-photo"><img src="images/memory-2.png" alt="Memory 2"></div>
+        <div class="popup-photo"><img src="images/memory-3.png" alt="Memory 3"></div>
+        <div class="popup-photo"><img src="images/memory-4.png" alt="Memory 4"></div>
+      </div>
+      <label class="add-photo">
+        ＋ always ready for more 
+        <input id="photoInput" type="file" accept="image/*" multiple onchange="addPopupPhotos(event)">
+      </label>
+    </div>
+  </div>
+
+  <!-- Typewriter popup -->
+  <div class="modal" id="loveModal" role="dialog" aria-modal="true" aria-labelledby="loveTitle" onclick="backdropClose(event, 'loveModal')">
+    <div class="modal-panel">
+      <button class="modal-close" type="button" aria-label="Close popup" onclick="closeModal('loveModal')">×</button>
+      <h2 class="modal-title" id="loveTitle">💗</h2>
+      <div class="love-message"><span id="typedLove"></span><span id="typingCursor"></span></div>
+    </div>
+  </div>
+
+  <!-- Bouquet popup -->
+  <div class="modal" id="bouquetModal" role="dialog" aria-modal="true" aria-labelledby="bouquetTitle" onclick="backdropClose(event, 'bouquetModal')">
+    <div class="modal-panel">
+      <button class="modal-close" type="button" aria-label="Close popup" onclick="closeModal('bouquetModal')">×</button>
+      <h2 class="modal-title" id="bouquetTitle">A bouquet for my favorite person 🌷</h2>
+      <div class="bouquet-wrap">
+        <svg class="bouquet-svg" viewBox="0 0 380 340" role="img" aria-label="A colourful bouquet of flowers wrapped in pink paper">
+          <defs>
+            <linearGradient id="wrapGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#ffd6e6"/><stop offset="1" stop-color="#e99aba"/>
+            </linearGradient>
+            <linearGradient id="ribbonGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#e94f91"/><stop offset="1" stop-color="#bd3976"/>
+            </linearGradient>
+          </defs>
+          <!-- stems and leaves -->
+          <g fill="none" stroke="#548b62" stroke-width="5" stroke-linecap="round">
+            <path d="M185 285 Q160 210 105 105"/><path d="M190 285 Q190 205 190 82"/>
+            <path d="M195 285 Q220 205 276 110"/><path d="M185 285 Q145 225 155 145"/>
+            <path d="M195 285 Q245 225 235 145"/>
+          </g>
+          <g fill="#6eaa79" stroke="#4e8b60" stroke-width="1.5">
+            <path d="M153 220 Q104 185 111 151 Q151 161 153 220Z"/>
+            <path d="M216 226 Q267 184 273 151 Q230 161 216 226Z"/>
+            <path d="M164 187 Q124 160 132 132 Q166 143 164 187Z"/>
+            <path d="M220 185 Q252 153 245 127 Q216 143 220 185Z"/>
+          </g>
+          <!-- flower 1: rose -->
+          <g transform="translate(104 96)">
+            <circle r="29" fill="#ef6b9b"/>
+            <g fill="#ffb2ca"><ellipse cy="-13" rx="12" ry="17"/><ellipse cy="13" rx="12" ry="17"/><ellipse cx="-13" rx="17" ry="12"/><ellipse cx="13" rx="17" ry="12"/></g>
+            <circle r="9" fill="#d94e83"/><path d="M-5 1 Q0 -9 7 -3 Q10 5 1 7" fill="none" stroke="#ffe2ec" stroke-width="3"/>
+          </g>
+          <!-- flower 2: daisy -->
+          <g transform="translate(190 75)" fill="#fff4fa">
+            <ellipse cy="-24" rx="10" ry="19"/><ellipse cy="24" rx="10" ry="19"/>
+            <ellipse cx="-24" rx="19" ry="10"/><ellipse cx="24" rx="19" ry="10"/>
+            <ellipse transform="rotate(45)" cy="-24" rx="10" ry="19"/>
+            <ellipse transform="rotate(45)" cy="24" rx="10" ry="19"/>
+            <ellipse transform="rotate(-45)" cy="-24" rx="10" ry="19"/>
+            <ellipse transform="rotate(-45)" cy="24" rx="10" ry="19"/>
+            <circle r="12" fill="#ffc64d"/>
+          </g>
+          <!-- flower 3 -->
+          <g transform="translate(276 101)">
+            <circle r="28" fill="#b99ae9"/>
+            <g fill="#d9c8ff">
+              <ellipse cy="-13" rx="12" ry="17"/><ellipse cy="13" rx="12" ry="17"/>
+              <ellipse cx="-13" rx="17" ry="12"/><ellipse cx="13" rx="17" ry="12"/>
+              <ellipse transform="rotate(45)" cy="-13" rx="12" ry="17"/>
+              <ellipse transform="rotate(45)" cy="13" rx="12" ry="17"/>
+            </g><circle r="9" fill="#f6d56e"/>
+          </g>
+          <!-- small flowers -->
+          <g transform="translate(151 145)">
+            <circle r="18" fill="#ffbd62"/><g fill="#fff0c9">
+              <ellipse cy="-13" rx="7" ry="11"/><ellipse cy="13" rx="7" ry="11"/>
+              <ellipse cx="-13" rx="11" ry="7"/><ellipse cx="13" rx="11" ry="7"/>
+            </g><circle r="6" fill="#d97a50"/>
+          </g>
+          <g transform="translate(235 145)">
+            <circle r="18" fill="#f080a9"/><g fill="#ffd1df">
+              <ellipse cy="-13" rx="7" ry="11"/><ellipse cy="13" rx="7" ry="11"/>
+              <ellipse cx="-13" rx="11" ry="7"/><ellipse cx="13" rx="11" ry="7"/>
+            </g><circle r="6" fill="#d94e83"/>
+          </g>
+          <!-- bouquet wrapping -->
+          <path d="M68 155 L190 305 L312 155 L278 278 Q190 315 102 278Z" fill="url(#wrapGrad)" stroke="#dc8eae" stroke-width="2"/>
+          <path d="M68 155 Q190 205 312 155 L190 305Z" fill="#ffe8f0" opacity=".55"/>
+          <path d="M112 270 Q190 300 268 270 L245 315 Q190 337 135 315Z" fill="#f6c1d5" opacity=".85"/>
+          <!-- ribbon -->
+          <path d="M190 263 C160 235 137 257 153 277 C165 291 180 279 190 270 C202 282 218 292 230 277 C245 257 219 235 190 263Z" fill="url(#ribbonGrad)"/>
+          <circle cx="190" cy="269" r="9" fill="#a93269"/>
+          <path d="M183 275 Q170 306 157 309 Q172 315 190 281Z M198 275 Q209 306 224 309 Q208 315 192 281Z" fill="#df4f8d"/>
+          <path d="M100 170 Q130 192 147 217 M280 170 Q250 192 233 217" fill="none" stroke="#ffffff" stroke-width="4" opacity=".6"/>
+        </svg>
+      </div>
+      <p class="bouquet-caption">For someone who makes everything better ♡</p>
+    </div>
+  </div>
+
+  <script>
+    // Gentle floating hearts
+    function heart() {
+      const h = document.createElement('div');
+      h.className = 'heart';
+      h.textContent = ['💗', '💕', '💖', '🌸', '✨'][Math.floor(Math.random() * 5)];
+      h.style.left = Math.random() * 100 + 'vw';
+      h.style.bottom = '-30px';
+      h.style.fontSize = (16 + Math.random() * 20) + 'px';
+      document.body.appendChild(h);
+      setTimeout(() => h.remove(), 3000);
+    }
+    const heartInterval = setInterval(heart, 1200);
+
+    // Popup controls
+    let previousFocus = null;
+    function openModal(id) {
+      const modal = document.getElementById(id);
+      previousFocus = document.activeElement;
+      modal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      const closeButton = modal.querySelector('.modal-close');
+      if (closeButton) closeButton.focus();
+    }
+    function closeModal(id) {
+      const modal = document.getElementById(id);
+      modal.classList.remove('open');
+      if (!document.querySelector('.modal.open')) document.body.style.overflow = '';
+      if (previousFocus) previousFocus.focus();
+    }
+    function backdropClose(event, id) {
+      if (event.target.id === id) closeModal(id);
+    }
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape') {
+        const opened = document.querySelector('.modal.open');
+        if (opened) closeModal(opened.id);
+      }
+    });
+
+    // Add selected pictures directly to the album popup
+    function addPopupPhotos(event) {
+      const gallery = document.getElementById('popupGallery');
+      Array.from(event.target.files).forEach(file => {
+        if (!file.type.startsWith('image/')) return;
+        const reader = new FileReader();
+        reader.onload = loadEvent => {
+          const photo = document.createElement('div');
+          photo.className = 'popup-photo';
+          const img = document.createElement('img');
+          img.src = loadEvent.target.result;
+          img.alt = 'Added memory';
+          photo.appendChild(img);
+          gallery.appendChild(photo);
+        };
+        reader.readAsDataURL(file);
+      });
+      event.target.value = '';
+    }
+
+    // Typewriter message
+    let typingTimer = null;
+    function openLoveModal() {
+      openModal('loveModal');
+      const target = document.getElementById('typedLove');
+      const cursor = document.getElementById('typingCursor');
+      const message = 'I love you Mithila, forever and ever.';
+      clearInterval(typingTimer);
+      target.textContent = '';
+      cursor.style.display = 'inline-block';
+      let index = 0;
+      typingTimer = setInterval(() => {
+        target.textContent += message.charAt(index);
+        index++;
+        if (index >= message.length) {
+          clearInterval(typingTimer);
+          cursor.style.display = 'none';
+        }
+      }, 90);
+    }
+
+    // Birthday cake
+    function blowCandles() {
+      const flame = document.getElementById('flame');
+      if (flame.classList.contains('off')) return;
+      flame.classList.add('off');
+      document.getElementById('cakeMessage').textContent = 'YAY! Your wish is on its way! 🥹💗';
+      document.getElementById('relight').style.display = 'inline-block';
+      for (let i = 0; i < 16; i++) setTimeout(heart, i * 80);
+    }
+    function relight() {
+      document.getElementById('flame').classList.remove('off');
+      document.getElementById('cakeMessage').textContent = 'Make another wish, birthday girl! 💗';
+      document.getElementById('relight').style.display = 'none';
+    }
+
+    // Final surprise
+    function surprise() {
+      document.getElementById('surpriseText').innerHTML =
+        'I LOVE YOU, MITHILA! 💗<br>More than all the miles between us. ♾️';
+      for (let i = 0; i < 25; i++) setTimeout(heart, i * 70);
+    }
+  </script>
+</body>
+</html>
